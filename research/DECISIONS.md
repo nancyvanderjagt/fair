@@ -11,6 +11,6 @@
 
 ## Working name
 
-Welcome to Fair
+Fair
 
-The repository name can remain `welcome-to-fair` even if the public brand changes later.
+The repository name can remain `fair` even if the public brand changes later.

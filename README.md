@@ -1,4 +1,4 @@
-# Welcome to Fair
+# Fair
 
 A starter public-information website intended to make 4-H projects and fair participation easier to understand.
 
