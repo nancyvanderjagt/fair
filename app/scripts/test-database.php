@@ -23,6 +23,7 @@ try {
         STDERR,
         "Database connection failed: {$exception->getMessage()}\n"
     );
+    
 
     exit(1);
 }
