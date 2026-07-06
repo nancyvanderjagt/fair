@@ -19,7 +19,7 @@ require_once __DIR__ . '/../app/includes/header.php';
   <div class="container hero-grid">
     <div>
       <p class="eyebrow">A practical 4-H and fair guide</p>
-      <h1>Know what comes next—before it becomes an emergency.</h1>
+      <h1>Know what comes next, with time to prepare.</h1>
       <p class="hero-copy">Fair is being built to help new and returning families understand projects, deadlines, paperwork, fair week, and auction preparation in one organized place.</p>
       <div class="button-row">
         <a class="button primary" href="getting-started.html">Start here</a>
