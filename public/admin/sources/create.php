@@ -91,10 +91,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_log(
             'Create source error: '
             . $exception->getMessage()
-        );
+            . PHP_EOL
+            . $exception->getTraceAsString()
+     );
 
-        $error =
-            'The source could not be saved. Please try again.';
+    $error =
+        'Create source error: '
+        . $exception->getMessage();
     }
 }
 
