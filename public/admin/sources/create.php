@@ -155,6 +155,44 @@ require_once __DIR__
                 <h2>Source details</h2>
 
                 <p>
+                    <label for="url">
+                        <strong>URL</strong>
+                    </label>
+
+                    <input
+                        id="url"
+                        name="url"
+                        type="url"
+                        value="<?= form_value($form, 'url') ?>"
+                        required
+                        style="width: 100%; padding: 12px;"
+                    >
+                </p>
+
+                <p>
+                    <button
+                        id="fetch-source-details"
+                        class="button secondary"
+                        type="button"
+                        data-csrf-token="<?= htmlspecialchars(
+                            $_SESSION['source_fetch_csrf_token'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ) ?>"
+                    >
+                        Fetch details
+                    </button>
+                </p>
+
+                <p
+                    id="source-fetch-status"
+                    class="small-note"
+                    aria-live="polite"
+                >
+                    Paste a URL, then fetch the details the site makes available.
+                </p>
+                
+                <p>
                     <label for="title">
                         <strong>Title</strong>
                     </label>
@@ -230,43 +268,7 @@ require_once __DIR__
                     </select>
                 </p>
 
-                <p>
-                    <label for="url">
-                        <strong>URL</strong>
-                    </label>
-
-                    <input
-                        id="url"
-                        name="url"
-                        type="url"
-                        value="<?= form_value($form, 'url') ?>"
-                        required
-                        style="width: 100%; padding: 12px;"
-                    >
-                </p>
-
-                <p>
-                    <button
-                        id="fetch-source-details"
-                        class="button secondary"
-                        type="button"
-                        data-csrf-token="<?= htmlspecialchars(
-                            $_SESSION['source_fetch_csrf_token'],
-                            ENT_QUOTES,
-                            'UTF-8'
-                        ) ?>"
-                    >
-                        Fetch details
-                    </button>
-                </p>
-
-                <p
-                    id="source-fetch-status"
-                    class="small-note"
-                    aria-live="polite"
-                >
-                    Paste a URL, then fetch the details the site makes available.
-                </p>
+                
 
                 <p>
                     <label for="source_type">
