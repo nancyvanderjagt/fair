@@ -236,7 +236,7 @@ require_once __DIR__ . '/../app/includes/header.php';
             classes, and auction eligibility.
           </p>
 
-          <a href="projects.html">
+          <a href="projects.php">
             Browse project guides →
           </a>
         </li>
@@ -283,7 +283,7 @@ require_once __DIR__ . '/../app/includes/header.php';
             teardown before fair begins.
           </p>
 
-          <a href="fair-week.html">
+          <a href="fair-week.php">
             Open the fair-week guide →
           </a>
         </li>
@@ -615,7 +615,7 @@ require_once __DIR__ . '/../app/includes/header.php';
           July 2, 2026
         </p>
 
-        <a href="resources.html">
+        <a href="resources.php">
           View the source library →
         </a>
 
@@ -643,11 +643,11 @@ require_once __DIR__ . '/../app/includes/header.php';
 
     <div>
       <p>
-        <a href="resources.html">Official sources</a>
+        <a href="resources.php">Official sources</a>
       </p>
 
       <p>
-        <a href="updates.html">Last verified information</a>
+        <a href="updates.php">Last verified information</a>
       </p>
 
       <p>

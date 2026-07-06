@@ -48,8 +48,8 @@ require_once __DIR__ . '/../app/includes/header.php';
       <p>An independent planning and education resource. Always confirm requirements with your official county, club, extension office, and fair publications.</p>
     </div>
     <div>
-      <p><a href="resources.html">Official sources</a></p>
-      <p><a href="updates.html">Last verified information</a></p>
+      <p><a href="resources.php">Official sources</a></p>
+      <p><a href="updates.php">Last verified information</a></p>
       <p>&copy; <span data-current-year></span> Fair</p>
     </div>
   </div>

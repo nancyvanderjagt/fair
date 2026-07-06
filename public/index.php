@@ -22,8 +22,8 @@ require_once __DIR__ . '/../app/includes/header.php';
       <h1>Know what comes next, with time to prepare.</h1>
       <p class="hero-copy">Fair is being built to help new and returning families understand projects, deadlines, paperwork, fair week, and auction preparation in one organized place.</p>
       <div class="button-row">
-        <a class="button primary" href="getting-started.html">Start here</a>
-        <a class="button secondary" href="projects.html">Browse project guides</a>
+        <a class="button primary" href="getting-started.php">Start here</a>
+        <a class="button secondary" href="projects.php">Browse project guides</a>
       </div>
     </div>
     <aside class="hero-card">
@@ -50,19 +50,19 @@ require_once __DIR__ . '/../app/includes/header.php';
         <span class="card-number">01</span>
         <h3>New member path</h3>
         <p>A plain-language explanation of clubs, projects, enrollment, meetings, records, and the fair timeline.</p>
-        <a href="getting-started.html">Open getting started →</a>
+        <a href="getting-started.php">Open getting started →</a>
       </article>
       <article class="card">
         <span class="card-number">02</span>
         <h3>Project guides</h3>
         <p>Species and project pages with official links, required documents, key dates, supplies, and questions to ask.</p>
-        <a href="projects.html">Open project guides →</a>
+        <a href="projects.php">Open project guides →</a>
       </article>
       <article class="card">
         <span class="card-number">03</span>
         <h3>Fair-week instructions</h3>
         <p>Check-in, weigh-in, stall setup, barn duty, showing, auction, release, teardown, and what to bring.</p>
-        <a href="fair-week.html">Open fair week →</a>
+        <a href="fair-week.php">Open fair week →</a>
       </article>
     </div>
   </div>

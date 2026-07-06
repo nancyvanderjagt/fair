@@ -12,7 +12,7 @@ A starter public-information website intended to make 4-H projects and fair part
 
 ## Open the site locally
 
-Double-click `index.html`, or open the project folder in VS Code and use a local preview extension.
+Double-click `index.php`, or open the project folder in VS Code and use a local preview extension.
 
 ## Publish with GitHub Pages
 
