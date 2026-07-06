@@ -60,9 +60,9 @@ $adminPageTitle = $adminPageTitle ?? 'Admin';
         </a>
 
         <nav class="site-nav" aria-label="Admin navigation">
-            <a href="/admin/">Dashboard</a>
+            <a href="/admin/index.php">Dashboard</a>
 
-            <a href="/admin/sources/">Sources</a>
+            <a href="/admin/sources/index.php">Sources</a>
 
             <a href="/admin/sources/create.php">
                 Add Source

@@ -15,7 +15,7 @@ session_set_cookie_params([
 session_start();
 
 if (isset($_SESSION['admin_user_id'])) {
-    header('Location: /admin/');
+    header('Location: /admin/index.php');
     exit;
 }
 
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     unset($_SESSION['login_csrf_token']);
 
-                    header('Location: /admin/');
+                    header('Location: /admin/index.php');
                     exit;
                 }
             } catch (Throwable $exception) {
