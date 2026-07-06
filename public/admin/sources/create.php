@@ -11,6 +11,14 @@ require_once __DIR__
 require_once __DIR__
     . '/../../../app/services/SourceService.php';
 
+if (
+    !isset($_SESSION['source_fetch_csrf_token'])
+    || !is_string($_SESSION['source_fetch_csrf_token'])
+) {
+    $_SESSION['source_fetch_csrf_token'] =
+        bin2hex(random_bytes(32));
+}
+
 $adminPageTitle = 'Add Source';
 
 function form_value(
@@ -235,6 +243,29 @@ require_once __DIR__
                         required
                         style="width: 100%; padding: 12px;"
                     >
+                </p>
+
+                <p>
+                    <button
+                        id="fetch-source-details"
+                        class="button secondary"
+                        type="button"
+                        data-csrf-token="<?= htmlspecialchars(
+                            $_SESSION['source_fetch_csrf_token'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ) ?>"
+                    >
+                        Fetch details
+                    </button>
+                </p>
+
+                <p
+                    id="source-fetch-status"
+                    class="small-note"
+                    aria-live="polite"
+                >
+                    Paste a URL, then fetch the details the site makes available.
                 </p>
 
                 <p>
@@ -498,6 +529,8 @@ require_once __DIR__
 
     </div>
 </section>
+
+<script src="/assets/js/source-fetch.js"></script>
 
 <?php
 
