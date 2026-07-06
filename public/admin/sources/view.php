@@ -7,6 +7,7 @@ $root = dirname(__DIR__, 3);
 require_once $root . '/app/auth/require-login.php';
 require_once $root . '/app/config/database.php';
 require_once $root . '/app/repositories/ClaimRepository.php';
+require_once $root . '/app/repositories/ResearchQuestionRepository.php';
 
 function sourceClaimEscape(?string $value): string
 {
@@ -40,7 +41,11 @@ if (!$sourceId || $sourceId < 1) {
     exit('A valid source ID is required.');
 }
 
-$repository = new ClaimRepository(db());
+$pdo = db();
+
+$repository = new ClaimRepository($pdo);
+$questionRepository = new ResearchQuestionRepository($pdo);
+
 $source = $repository->findSource($sourceId);
 
 if ($source === null) {
@@ -55,6 +60,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'The form expired. Refresh the page and try again.';
     } else {
         try {
+            $entryType = (string) ($_POST['entry_type'] ?? 'claims');
+
+            if ($entryType === 'questions') {
+                $createdCount = $questionRepository
+                    ->createQuestionsFromSource(
+                        $sourceId,
+                        (string) ($_POST['questions_text'] ?? ''),
+                        isset($_POST['question_fair_cycle_id'])
+                            && (int) $_POST['question_fair_cycle_id'] > 0
+                                ? (int) $_POST['question_fair_cycle_id']
+                                : null,
+                        (string) ($_POST['question_priority'] ?? 'normal'),
+                        isset($_SESSION['admin_user_id'])
+                            ? (int) $_SESSION['admin_user_id']
+                            : null
+                    );
+
+                header(
+                    'Location: /admin/sources/view.php?id='
+                    . $sourceId
+                    . '&added_questions='
+                    . $createdCount
+                );
+                exit;
+            }
+
             $createdCount = $repository->createClaimsFromSource(
                 $sourceId,
                 (string) ($_POST['claims_text'] ?? ''),
@@ -83,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header(
                 'Location: /admin/sources/view.php?id='
                 . $sourceId
-                . '&added='
+                . '&added_claims='
                 . $createdCount
             );
             exit;
@@ -94,9 +125,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $claims = $repository->getClaimsForSource($sourceId);
+$questions = $questionRepository->getQuestionsForSource($sourceId);
 $fairCycles = $repository->getFairCycles();
 
-$addedCount = filter_input(INPUT_GET, 'added', FILTER_VALIDATE_INT);
+$addedClaimsCount = filter_input(
+    INPUT_GET,
+    'added_claims',
+    FILTER_VALIDATE_INT
+);
+
+$addedQuestionsCount = filter_input(
+    INPUT_GET,
+    'added_questions',
+    FILTER_VALIDATE_INT
+);
 
 $pageTitle = 'Source Claims';
 
@@ -218,10 +260,18 @@ require $root . '/app/includes/admin-header.php';
         </div>
     </div>
 
-    <?php if ($addedCount): ?>
+    <?php if ($addedClaimsCount): ?>
         <div class="source-claim-notice source-claim-success">
-            <?= (int) $addedCount ?>
-            <?= $addedCount === 1 ? 'claim was' : 'claims were' ?>
+            <?= (int) $addedClaimsCount ?>
+            <?= $addedClaimsCount === 1 ? 'claim was' : 'claims were' ?>
+            created and linked to this source.
+        </div>
+    <?php endif; ?>
+
+    <?php if ($addedQuestionsCount): ?>
+        <div class="source-claim-notice source-claim-success">
+            <?= (int) $addedQuestionsCount ?>
+            <?= $addedQuestionsCount === 1 ? 'question was' : 'questions were' ?>
             created and linked to this source.
         </div>
     <?php endif; ?>
@@ -288,6 +338,7 @@ require $root . '/app/includes/admin-header.php';
             <h2>Add claims</h2>
 
             <form method="post" class="source-claim-form">
+                <input type="hidden" name="entry_type" value="claims">
                 <input
                     type="hidden"
                     name="csrf_token"
@@ -303,9 +354,10 @@ require $root . '/app/includes/admin-header.php';
                     required
                     placeholder="Participants may be as young as 5 years old.
 
-Participants may participate through age 19.
+                                Participants may participate through age 19.
 
-Ionia County offers a meat goat project."
+                                Ionia County offers a meat goat project."
+
                 ><?= sourceClaimEscape($_POST['claims_text'] ?? '') ?></textarea>
 
                 <p class="source-claim-help">
@@ -410,6 +462,146 @@ Ionia County offers a meat goat project."
             </form>
         </section>
     </div>
+
+    <div class="source-claim-layout" style="margin-top: 1.5rem;">
+        <section class="source-claim-panel">
+            <h2>Questions raised by this source</h2>
+
+            <p>
+                Record questions that need additional research, confirmation,
+                or another source.
+            </p>
+
+            <?php if ($questions === []): ?>
+                <p>No research questions have been recorded from this source.</p>
+            <?php else: ?>
+                <div class="source-claim-list">
+                    <?php foreach ($questions as $question): ?>
+                        <article class="source-claim-item">
+                            <strong>
+                                <?= sourceClaimEscape(
+                                    $question['question_text']
+                                ) ?>
+                            </strong>
+
+                            <div class="source-claim-meta">
+                                <span>
+                                    Status:
+                                    <?= sourceClaimEscape(
+                                        ucwords(
+                                            str_replace(
+                                                '_',
+                                                ' ',
+                                                $question['status']
+                                            )
+                                        )
+                                    ) ?>
+                                </span>
+
+                                <span>
+                                    Priority:
+                                    <?= sourceClaimEscape(
+                                        ucfirst($question['priority'])
+                                    ) ?>
+                                </span>
+
+                                <span>
+                                    Category:
+                                    <?= sourceClaimEscape(
+                                        $question['category_name']
+                                        ?: 'Uncategorized'
+                                    ) ?>
+                                </span>
+
+                                <?php if (!empty($question['fair_cycle_label'])): ?>
+                                    <span>
+                                        Fair cycle:
+                                        <?= sourceClaimEscape(
+                                            $question['fair_name']
+                                            . ' — '
+                                            . $question['fair_cycle_label']
+                                        ) ?>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </section>
+
+        <section class="source-claim-panel">
+            <h2>Add questions</h2>
+
+            <form method="post" class="source-claim-form">
+                <input type="hidden" name="entry_type" value="questions">
+
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="<?= sourceClaimEscape(sourceClaimCsrfToken()) ?>"
+                >
+
+                <label for="questions_text">Questions</label>
+
+                <textarea
+                    id="questions_text"
+                    name="questions_text"
+                    class="claims-box"
+                    required
+                    placeholder="Does the minimum age apply to Cloverbuds or competitive exhibitors?
+
+    Is the deadline the same for every animal project?
+
+    Who approves late entries?"
+                ><?= sourceClaimEscape(
+                    $_POST['questions_text'] ?? ''
+                ) ?></textarea>
+
+                <p class="source-claim-help">
+                    Enter one question per paragraph. Separate questions with
+                    a blank line.
+                </p>
+
+                <label for="question_fair_cycle_id">
+                    Applies to fair cycle
+                </label>
+
+                <select
+                    id="question_fair_cycle_id"
+                    name="question_fair_cycle_id"
+                >
+                    <option value="">Not assigned yet</option>
+
+                    <?php foreach ($fairCycles as $cycle): ?>
+                        <option value="<?= (int) $cycle['id'] ?>">
+                            <?= sourceClaimEscape(
+                                $cycle['fair_name']
+                                . ' — '
+                                . $cycle['label']
+                            ) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <label for="question_priority">Priority</label>
+
+                <select id="question_priority" name="question_priority">
+                    <option value="normal">Normal</option>
+                    <option value="low">Low</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+
+                <p style="margin-top: 1.25rem;">
+                    <button type="submit" class="button button-primary">
+                        Save questions
+                    </button>
+                </p>
+            </form>
+        </section>
+    </div>
+
 </div>
 
 <?php require $root . '/app/includes/admin-footer.php'; ?>
