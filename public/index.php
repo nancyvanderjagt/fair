@@ -22,7 +22,7 @@ require_once __DIR__ . '/../app/includes/header.php';
       <h1>Know what comes next, with time to prepare.</h1>
       <p class="hero-copy">Fair is being built to help new and returning families understand projects, deadlines, paperwork, fair week, and auction preparation in one organized place.</p>
       <div class="button-row">
-        <a class="button primary" href="getting-started.php">Start here</a>
+        <a class="button primary" href="getting-started.php">Start here!</a>
         <a class="button secondary" href="projects.php">Browse project guides</a>
       </div>
     </div>
