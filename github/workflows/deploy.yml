@@ -1,0 +1,70 @@
+name: Deploy Fair to SiteGround
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fair-siteground-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy production site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+      SG_USER: ${{ secrets.SITEGROUND_USER }}
+      SG_PORT: ${{ secrets.SITEGROUND_PORT }}
+      SG_SSH_KEY: ${{ secrets.SITEGROUND_SSH_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        shell: bash
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SG_SSH_KEY" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+
+          ssh-keyscan -p "$SG_PORT" "$SG_HOST" >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Test SiteGround connection
+        shell: bash
+        run: |
+          ssh \
+            -i ~/.ssh/siteground_key \
+            -p "$SG_PORT" \
+            "$SG_USER@$SG_HOST" \
+            "test -d /home/customer/www/fair.sparklegoat.com/public_html"
+
+      - name: Deploy application files
+        shell: bash
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/siteground_key -p $SG_PORT" \
+            app/ \
+            "$SG_USER@$SG_HOST:/home/customer/www/fair.sparklegoat.com/app/"
+
+      - name: Deploy public website
+        shell: bash
+        run: |
+          rsync -az --delete \
+            --exclude=".well-known/" \
+            --exclude="uploads/" \
+            -e "ssh -i ~/.ssh/siteground_key -p $SG_PORT" \
+            public/ \
+            "$SG_USER@$SG_HOST:/home/customer/www/fair.sparklegoat.com/public_html/"
