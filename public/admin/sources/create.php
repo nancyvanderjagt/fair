@@ -154,6 +154,14 @@ require_once __DIR__
 
                 <h2>Source details</h2>
 
+                <p
+                    id="source-fetch-status"
+                    class="small-note"
+                    aria-live="polite"
+                >
+                    Paste a URL, then fetch the details the site makes available.
+                </p>
+
                 <p>
                     <label for="url">
                         <strong>URL</strong>
@@ -184,13 +192,6 @@ require_once __DIR__
                     </button>
                 </p>
 
-                <p
-                    id="source-fetch-status"
-                    class="small-note"
-                    aria-live="polite"
-                >
-                    Paste a URL, then fetch the details the site makes available.
-                </p>
                 
                 <p>
                     <label for="title">
