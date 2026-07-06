@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Fair Admin</h1>
 
             <p>
-                Sign in to manage sources, research, and public information!
+                Sign in to manage sources, research, and public information!!
             </p>
 
         </div>
