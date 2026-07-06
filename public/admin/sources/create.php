@@ -48,7 +48,10 @@ $form = [
     'projects' => '',
     'topics' => '',
     'age_groups' => '',
+    'tags' => '',
 ];
+
+
 
 $error = '';
 $createdSourceId = isset($_GET['created'])
@@ -328,6 +331,7 @@ require_once __DIR__
                     'projects' => 'Projects',
                     'topics' => 'Topics',
                     'age_groups' => 'Age groups',
+                    'tags' => 'Tags',
                 ];
                 ?>
 
