@@ -354,9 +354,9 @@ require $root . '/app/includes/admin-header.php';
                     required
                     placeholder="Participants may be as young as 5 years old.
 
-                 Participants may participate through age 19.
+Participants may participate through age 19.
 
-                Ionia County offers a meat goat project."
+Ionia County offers a meat goat project."
 
                 ><?= sourceClaimEscape($_POST['claims_text'] ?? '') ?></textarea>
 
