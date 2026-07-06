@@ -356,7 +356,9 @@ require_once __DIR__
                         </p>
 
                         <h2>
-                            <?= source_escape($source['title']) ?>
+                            <a href="/admin/sources/view.php?id=<?= (int) $source['id'] ?>">
+                                <?= source_escape($source['title']) ?>
+                            </a>
                         </h2>
 
                         <p>
