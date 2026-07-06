@@ -157,8 +157,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-<!doctype html>
-<html lang="en">
+<!doctype php>
+<php lang="en">
 <head>
     <meta charset="utf-8">
 
@@ -203,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <?php if ($error !== ''): ?>
                     <div class="warning">
-                        <?= htmlspecialchars(
+                        <?= phpspecialchars(
                             $error,
                             ENT_QUOTES,
                             'UTF-8'
@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input
                         type="hidden"
                         name="csrf_token"
-                        value="<?= htmlspecialchars(
+                        value="<?= phpspecialchars(
                             $_SESSION['login_csrf_token'],
                             ENT_QUOTES,
                             'UTF-8'
@@ -234,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             id="email"
                             name="email"
                             type="email"
-                            value="<?= htmlspecialchars(
+                            value="<?= phpspecialchars(
                                 $email,
                                 ENT_QUOTES,
                                 'UTF-8'
@@ -281,4 +281,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </main>
 
 </body>
-</html>
+</php>

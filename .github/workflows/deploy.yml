@@ -49,7 +49,7 @@ jobs:
             -i ~/.ssh/siteground_key \
             -p "$SG_PORT" \
             "$SG_USER@$SG_HOST" \
-            "test -d /home/customer/www/fair.sparklegoat.com/public_html"
+            "test -d /home/customer/www/fair.sparklegoat.com/public_php"
 
       - name: Deploy application files
         shell: bash
@@ -67,4 +67,4 @@ jobs:
             --exclude="uploads/" \
             -e "ssh -i ~/.ssh/siteground_key -p $SG_PORT" \
             public/ \
-            "$SG_USER@$SG_HOST:/home/customer/www/fair.sparklegoat.com/public_html/"
+            "$SG_USER@$SG_HOST:/home/customer/www/fair.sparklegoat.com/public_php/"

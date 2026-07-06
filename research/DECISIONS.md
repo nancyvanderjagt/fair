@@ -3,7 +3,7 @@
 ## Current scope
 
 - Begin as a public research and education website.
-- Use plain static HTML, CSS, and JavaScript.
+- Use plain static php, CSS, and JavaScript.
 - Keep official requirements separate from general advice.
 - Include source and verification information.
 - Require human review before publishing detected updates.
