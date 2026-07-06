@@ -152,3 +152,40 @@ Use one section for every source reviewed.
 - **Related site pages:** Getting Started; Fair Week; Resources; Updates
 - **Saved copy or prior version:** Not yet saved
 - **Notes:** Use this as the primary public source for identifying the current fair year and dates. More detailed requirements should link to the appropriate exhibitor, rule, schedule, or application page.
+
+
+---
+
+* **Title:** 4-H Online
+* **Organization:** RegistrationMax LLC
+* **URL:** https://4honline.com/
+* **Type:** Web page / online enrollment and program-management platform
+* **Applies to:** State, county, club, fair, project, age group
+* **Project tags:** 4-H enrollment, family account, member records, volunteer enrollment, project enrollment, animal records, event registration
+* **Publication year or version:** Live platform; no publication year listed. Site copyright is 2026.
+* **Date checked:** July 6, 2026
+* **Current status:** Current
+* **What this source establishes:** 4-H Online is a digital management system used for functions including member enrollment, project tracking, event registration, volunteer management, animal management, communications, financial processing, and reporting. The exact features and required processes may be configured differently by each state or local 4-H program.
+* **Important language to verify:** Verify through the applicable state or county Extension office whether 4-H Online is the required enrollment system; annual enrollment deadlines; reenrollment requirements; project-selection deadlines; animal identification deadlines; volunteer requirements; and whether information entered in 4-H Online transfers into FairEntry. Do not describe the platform itself as establishing local deadlines or eligibility rules.
+* **Related site pages:** Getting Started in 4-H; How to Join 4-H; Annual Enrollment; Choosing Projects; Animal Identification and Registration; Important Accounts and Logins; Preparing for Fair; FairEntry Registration
+* **Saved copy or prior version:** None saved
+* **Notes:** Families commonly use one household account with individual youth and volunteer profiles, but the exact enrollment and approval process should be supported by a state or county 4-H source. Some FairEntry fairs allow exhibitors to sign in using their 4-H Online account and may import member or animal information.
+
+
+---
+
+* **Title:** FairEntry
+* **Organization:** RegistrationMax LLC
+* **URL:** https://fairentry.com/
+* **Type:** Web page / online fair and show registration platform
+* **Applies to:** County, club, fair, project, age group
+* **Project tags:** fair registration, exhibit entry, livestock entry, class entry, fair deadlines, exhibitor account, 4-H Online integration, entry confirmation
+* **Publication year or version:** Live platform; no publication year listed. Site copyright is 2026. Fair pages displayed software version 2.2.516.37 when checked.
+* **Date checked:** July 6, 2026
+* **Current status:** Current
+* **What this source establishes:** FairEntry is an online management and registration platform for 4-H, FFA, open-class fairs, and shows. Participating fairs can use it for exhibitor registration, department and class selection, animal entries, staff or volunteer access, buyer access, entry submission, and approval. Individual fairs have their own FairEntry pages, registration dates, entry options, and instructions.
+* **Important language to verify:** Verify the correct FairEntry link for the specific fair; registration opening and closing dates; required departments, divisions, and classes; animal identification requirements; entry fees; required uploads; submission and approval procedures; correction policies; late-entry rules; and whether exhibitors should sign in with 4-H Online or create a separate FairEntry account. FairEntry does not replace the fair book, premium book, or local rules.
+* **Related site pages:** Registering for Fair; FairEntry Step-by-Step Guide; Fair Deadlines; Choosing Departments, Divisions, and Classes; Livestock and Animal Entries; Still Exhibits; Fair Book and Rules; After You Submit Your Entries; Common FairEntry Problems
+* **Saved copy or prior version:** None saved
+* **Notes:** The public “Find Your Fair” directory can help locate participating fairs, but families should use the link supplied by their county, club, Extension office, or fair whenever possible. A registration is not necessarily complete merely because entry information was started; local instructions should explain the final submission, confirmation, and approval process. FairEntry can allow users to sign in with a 4-H Online account or a separate FairEntry exhibitor account, depending on the fair’s configuration.
+
