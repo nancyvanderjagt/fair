@@ -1,53 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
 
-  <title>Ionia County | Fair</title>
+declare(strict_types=1);
 
-  <meta
-    name="description"
-    content="A starting guide for Ionia County 4-H enrollment, projects, official forms, fair preparation, and the Ionia Free Fair."
-  >
+$pageTitle = 'Ionia County';
 
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+$pageDescription =
+    'A starting guide for Ionia County 4-H enrollment, projects, official forms, and the Ionia Free Fair.';
 
-<body>
+$currentPage = 'ionia-county';
 
-<header class="site-header">
-  <div class="container header-inner">
+require_once __DIR__ . '/../app/includes/header.php';
 
-    <a class="brand" href="index.html" aria-label="Fair home">
-      <span class="brand-mark" aria-hidden="true">4H</span>
-
-      <span>
-        <strong>Fair</strong>
-        <small>A clearer path through 4-H and fair</small>
-      </span>
-    </a>
-
-    <button
-      class="nav-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="site-nav"
-    >
-      Menu
-    </button>
-
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="getting-started.html">Getting Started</a>
-      <a href="projects.html">Project Guides</a>
-      <a href="fair-week.html">Fair Week</a>
-      <a href="resources.html">Resources</a>
-      <a href="updates.html">Updates</a>
-    </nav>
-
-  </div>
-</header>
-
+?>
 
 <main>
 
