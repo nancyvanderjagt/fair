@@ -1,35 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | Fair</title>
-  <meta name="description" content="A clearer path through 4-H projects, fair preparation, and fair week.">
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+<?php
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-current="page" aria-label="Fair home">
-      <span class="brand-mark" aria-hidden="true">4H</span>
-      <span>
-        <strong>Fair</strong>
-        <small>A clearer path through 4-H and fair</small>
-      </span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      Menu
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="getting-started.html">Getting Started</a>
-      <a href="projects.html">Project Guides</a>
-      <a href="fair-week.html">Fair Week</a>
-      <a href="resources.html">Resources</a>
-      <a href="updates.html">Updates</a>
-    </nav>
-  </div>
-</header>
+declare(strict_types=1);
+
+$pageTitle = 'Home';
+
+$pageDescription =
+    'A clear path through 4-H projects, fair preparation, and fair week.';
+
+$currentPage = 'home';
+
+require_once __DIR__ . '/../app/includes/header.php';
+
+?>
 
 <main>
 
@@ -103,20 +85,6 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <strong>Fair</strong>
-      <p>An independent planning and education resource. Always confirm requirements with your official county, club, extension office, and fair publications.</p>
-    </div>
-    <div>
-      <p><a href="resources.html">Official sources</a></p>
-      <p><a href="updates.html">Last verified information</a></p>
-      <p>&copy; <span data-current-year></span> Fair</p>
-    </div>
-  </div>
-</footer>
-<script src="assets/js/site.js"></script>
+<?php
 
-</body>
-</html>
+require_once __DIR__ . '/../app/includes/footer.php';

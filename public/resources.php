@@ -1,35 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resources | Fair</title>
-  <meta name="description" content="Official sources and research tracking for 4-H and fair information.">
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+<?php
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Fair home">
-      <span class="brand-mark" aria-hidden="true">4H</span>
-      <span>
-        <strong>Fair</strong>
-        <small>A clearer path through 4-H and fair</small>
-      </span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      Menu
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="getting-started.html">Getting Started</a>
-      <a href="projects.html">Project Guides</a>
-      <a href="fair-week.html">Fair Week</a>
-      <a href="resources.html" aria-current="page">Resources</a>
-      <a href="updates.html">Updates</a>
-    </nav>
-  </div>
-</header>
+declare(strict_types=1);
+
+$pageTitle = 'Resources';
+
+$pageDescription =
+    'Official sources, forms, record books, and research used to verify 4-H and fair information.';
+
+$currentPage = 'resources';
+
+require_once __DIR__ . '/../app/includes/header.php';
+
+?>
+
 
 <main>
 

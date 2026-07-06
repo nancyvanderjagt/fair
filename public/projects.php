@@ -1,35 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project Guides | Fair</title>
-  <meta name="description" content="Research-based guides for 4-H animal and still projects.">
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+<?php
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Fair home">
-      <span class="brand-mark" aria-hidden="true">4H</span>
-      <span>
-        <strong>Fair</strong>
-        <small>A clearer path through 4-H and fair</small>
-      </span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      Menu
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="getting-started.html">Getting Started</a>
-      <a href="projects.html" aria-current="page">Project Guides</a>
-      <a href="fair-week.html">Fair Week</a>
-      <a href="resources.html">Resources</a>
-      <a href="updates.html">Updates</a>
-    </nav>
-  </div>
-</header>
+declare(strict_types=1);
+
+$pageTitle = 'Project Guides';
+
+$pageDescription =
+    'Research-based guides for 4-H animal projects, still projects, and fair preparation.';
+
+$currentPage = 'projects';
+
+require_once __DIR__ . '/../app/includes/header.php';
+
+?>
 
 <main>
 
@@ -46,8 +28,8 @@
       <strong>First research priority:</strong> Build one complete guide from beginning to end before trying to cover every project.
     </div>
     <div class="card-grid project-grid">
-      <article class="card"><p class="eyebrow">Animal project</p><h2>Goats</h2><p>Ownership, identification, health, feeding, fitting, showing, records, fair check-in, and auction.</p><a href="project-guides/goats.html">Open draft guide →</a></article>
-      <article class="card"><p class="eyebrow">Animal project</p><h2>Chickens</h2><p>Bird selection, care, health, housing, entry classes, show preparation, records, and sale requirements.</p><a href="project-guides/chickens.html">Open draft guide →</a></article>
+      <article class="card"><p class="eyebrow">Animal project</p><h2>Goats</h2><p>Ownership, identification, health, feeding, fitting, showing, records, fair check-in, and auction.</p><a href="project-guides/goats.php">Open draft guide →</a></article>
+      <article class="card"><p class="eyebrow">Animal project</p><h2>Chickens</h2><p>Bird selection, care, health, housing, entry classes, show preparation, records, and sale requirements.</p><a href="project-guides/chickens.php">Open draft guide →</a></article>
       <article class="card"><p class="eyebrow">Planned</p><h2>Swine</h2><p>Placeholder for future research.</p><span class="status draft">Not started</span></article>
       <article class="card"><p class="eyebrow">Planned</p><h2>Rabbits</h2><p>Placeholder for future research.</p><span class="status draft">Not started</span></article>
       <article class="card"><p class="eyebrow">Planned</p><h2>Still projects</h2><p>Placeholder for crafts, foods, horticulture, photography, and other non-livestock projects.</p><span class="status draft">Not started</span></article>
