@@ -4,7 +4,7 @@ A starter public-information website intended to make 4-H projects and fair part
 
 ## What this repository contains
 
-- A static php/CSS/JavaScript website
+- A static HTML/CSS/JavaScript website
 - Initial pages for getting started, project guides, fair week, resources, and updates
 - Draft goat and chicken research frameworks
 - A source log and content backlog

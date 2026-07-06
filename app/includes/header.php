@@ -13,8 +13,8 @@ function nav_attributes(string $pageKey, string $currentPage): string
 }
 
 ?>
-<!doctype php>
-<php lang="en">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
 
@@ -24,12 +24,12 @@ function nav_attributes(string $pageKey, string $currentPage): string
     >
 
     <title>
-        <?= phpspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?> | Fair
+        <?= htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?> | Fair
     </title>
 
     <meta
         name="description"
-        content="<?= phpspecialchars(
+        content="<?= htmlspecialchars(
             $pageDescription,
             ENT_QUOTES,
             'UTF-8'

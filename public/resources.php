@@ -61,4 +61,4 @@ require_once __DIR__ . '/../app/includes/header.php';
 <script src="assets/js/site.js"></script>
 
 </body>
-</php>
+</html>
